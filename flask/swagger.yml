@@ -1,0 +1,41 @@
+# swagger.yml
+swagger: "2.0"
+info:
+  description: Descritpion of the car 'Lead' service api
+  version: "1.0.0"
+  title: Car APIs
+consumes:
+  - "application/json"
+produces:
+  - "application/json"
+
+basePath: "/api"
+
+# Paths supported by the server application
+paths:
+  /leads:
+    get:
+      operationId: "leads.read"
+      tags:
+        - "Lead"
+      summary: "A Lead search returns a collection of located vehicles leads"
+      description: "Read the list of Leads"
+      responses:
+        200:
+          description: "located Leads that match the selection"
+          schema:
+            type: "array"
+            items:
+              properties:
+                description:
+                  type: "string"
+                value:
+                  type: "integer"
+                miles:
+                  type: "integer"
+                year:
+                  type: "integer"
+                registration:
+                  type: "integer"
+                timestamp:
+                  type: "string"

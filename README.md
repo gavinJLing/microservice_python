@@ -5,3 +5,5 @@ As part of a wider desire to present a collection of EC2 REST api's within a Ter
 With SIEM leveraging Splunk escalation (via email or Slack). Adopting a car theme.
 
 
+### Docs
+Leverages Python _[Flask](https://flask-restful.readthedocs.io/en/latest/)_ api
