@@ -5,7 +5,8 @@ def get_timestamp():
 
 # Data to serve with our API
 LEADS = {
-    "miles-32500": {
+    "audi_r8_a": {
+        "ref" : "audi-r8-a",
         "description": "Audi R8 4.2 FSI V8 R Tronic quattro 2dr",
         "value": 75500,
         "miles" : 32500,
@@ -13,7 +14,8 @@ LEADS = {
         "registration" : "AAAAAA",
         "timestamp": get_timestamp()
     },
-    "miles-36950": {
+    "audi_r8_b": {
+        "ref" : "audi-r8-b",
         "description": "Audi R8 4.2 V8 QUATTRO AUTO 500 BHP 2 DR COUPE ABT BODYSTYLING",
         "value":  54000,
          "miles" : 36950,
@@ -21,7 +23,8 @@ LEADS = {
         "registration" : "BBBBBBB",
         "timestamp": get_timestamp()
     },
-    "miles-40000": {
+    "audi_r8_c": {
+        "ref" : "audi-r8-c",
         "description": "Audi R8 4.2 FSI V8 R Tronic quattro 2dr ",
         "value": 65000,
          "miles" : 40000,
