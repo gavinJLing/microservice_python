@@ -1,0 +1,23 @@
+# `hello_api.yaml` file contents
+swagger: '2.0'
+info:
+  title: Hello API
+  version: "0.1"
+paths:
+  /greeting:
+    get:
+      operationId: hello_api.say_hello
+      parameters:
+        - name: name
+          in: query
+          type: string
+      summary: Returns a greeting.
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            type: object
+            properties:
+              message:
+                type: string
+                description: Message greeting
