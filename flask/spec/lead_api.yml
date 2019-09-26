@@ -17,7 +17,7 @@ paths:
     get:
       operationId: "leads.read"
       tags:
-        - "Lead"
+        - "Lead operations"
       summary: "A Lead search returns a collection of located vehicles leads"
       description: "Read the list of Leads"
       responses:
