@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Banner Web client</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+  </head>
+  <body>
+    <h3>Banner client application 3</h3>
+    Font:<input  type="text" id="font_style" value="thin"><br>
+    Text:<input  type="text" id="banner_text" value="Hello World"><br>
+    <button id="call_banner">ajax call</button>
+    <pre id="banner_here"></pre>
+
+
+   <script type="text/javascript">
+
+
+
+      const font_style = $('#font_style').val();
+      const text = $('#banner_text').val();
+
+
+
+      $('#call_banner').click(function(){
+          api_url = 'http://localhost:5000/banner/'+ text + '?format=JSON&font=' + font_style
+
+          console.log('calling remote service: '+api_url);
+          $.ajax({
+            url: api_url ,
+
+            dataType: 'html',
+            headers: {
+                    'Access-Control-Allow-Origin': '*'
+                },
+            success: function(result,status){
+                console.log('... returned from remote service: OK');
+                console.log(result)
+                console.log(status)
+
+                $("#banner_here").html(result.banner);
+
+            },
+            error: function(request, status, error){
+                console.log('Failed');
+                 console.log(request.responseText);
+                 console.log(status)
+                 console.log(error)
+                $("#banner_here").html(request.responseText);
+
+            }
+          })
+          console.log('End of Ajax Click event');
+      })
+    </script>
+  </body>
+</html>

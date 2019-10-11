@@ -3,18 +3,7 @@ A Python based microservice. To allow me to explore the Python language for micr
 
 
 
-### Goal
-To create a collection of python based REST apis adopting a Car theme. To Query car related data 
-As part of a wider desire to present a collection of AWS EC2 REST api's within a Terraformed AWS & Azure data fabric.
-With SIEM leveraging Splunk escalation (via email or Slack). Adopting a car theme.
-
-
-### Docs
-Leverages Python _[Flask](https://flask-restful.readthedocs.io/en/latest/)_ api
-
-
-### Installs & setup
-This is a Python3 application, so install python3 & Pip package manager. Because this api uses Python libraries to do the heavy lifting, we will need to install these also. 
+### Connexion 
 
 ```
 pip install flask
@@ -113,14 +102,3 @@ $ curl localhost:5000/greeting?name=gavin -v
 
 **Well Done!** - youve just executed a python microservice.
 
-Its early days - lots more features to add before this is ready to be a secure micro service in the cloud.
-
-* progress to [testing](./testing/howToTest) the service to ensure its always working.
-* Progress to [Security](./security/HowToSecureAservice.md) for details of how to apply basic authorisation using JWT
-* Progress to [hardening](./hardening/howToHarden.md) an http server to guard against attack vectors.
-* Progress to [Containerise](./docker/howToCreateAContainer.md) to promote reuse of this service component  within the cloud
-* Progress to [Cloud deployment](./cloud/howToDeployIntheCloud), to get the service hosted in a private cloud.
-* Progress to [Automation](.ci/howToDoCI), to propergate the code into the cloud after changes.
-
-
- 
