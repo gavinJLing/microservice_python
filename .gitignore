@@ -1,3 +1,6 @@
+.DS_Store
+.idea/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -102,3 +105,10 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+# PyCharm
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/microservice_python.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
