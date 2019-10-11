@@ -1,12 +1,15 @@
 #!/usr/local/bin/python3
 
 from flask import Flask, jsonify, abort, make_response, request
+from flask_cors import CORS
 from pyfiglet import Figlet
 
 app = Flask(__name__)
+CORS(app)
 
 # some defaults
 password = "stumpylongnose"
+
 
 
 
