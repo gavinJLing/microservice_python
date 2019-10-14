@@ -1,5 +1,5 @@
-# microservice_python
-A Python based microservice. To allow me to explore the Python language for micro service experiments.
+# Interface First - Microservice
+A Python based microservice, where OpenAPI (Swagger) is used to describe a micro service. The microservice application leverages a coding framework (connexion) to provide the REST api heavy lifting, leaving the business logic implementation to you. 
 
 
 

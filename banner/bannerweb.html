@@ -7,9 +7,9 @@
 
   </head>
   <body>
-    <h3>Banner client application 3</h3>
+    <h3>Banner client application</h3>
     Font:<input  type="text" id="font_style" value="thin"><br>
-    Text:<input  type="text" id="banner_text" value="Hello World"><br>
+    Text:<input  type="text" id="banner_text" value="Hello world"><br>
     <button id="call_banner">ajax call</button>
     <pre id="banner_here"></pre>
 
@@ -18,37 +18,37 @@
 
 
 
-      const font_style = $('#font_style').val();
-      const text = $('#banner_text').val();
 
 
 
       $('#call_banner').click(function(){
-          api_url = 'http://localhost:5000/banner/'+ text + '?format=JSON&font=' + font_style
+        const font_style = $('#font_style').val();
+        const text       = $('#banner_text').val();
+        let   api_url    = 'http://localhost:5000/banners/'+ text + '?format=JSON&font=' + font_style
 
-          console.log('calling remote service: '+api_url);
-          $.ajax({
-            url: api_url ,
-
-            dataType: 'html',
-            headers: {
-                    'Access-Control-Allow-Origin': '*'
-                },
-            success: function(result,status){
-                console.log('... returned from remote service: OK');
-                console.log(result)
-                console.log(status)
-
-                $("#banner_here").html(result.banner);
-
+        console.log('Start of Ajax Click event, calling remote service: '+api_url);
+        $.ajax({
+          url: api_url ,
+          contentType: "application/json",
+          dataType: "json",
+          headers: {
+                  'Access-Control-Allow-Origin': '*'
             },
-            error: function(request, status, error){
-                console.log('Failed');
-                 console.log(request.responseText);
-                 console.log(status)
-                 console.log(error)
-                $("#banner_here").html(request.responseText);
+          statusCode: {
+            404: function() {
+              console.log("Could not find the server- HTTP 404")
+            }
+          },
+          success: function(result,status){
+              console.log('... returned from remote service: OK');
+              $("#banner_here").html(result.banner);
+            },
+          error: function(xhr,  textStatus,  errorThrown ){
+            console.log(xhr)
+            console.log(textStatus)
+            console.log(errorThrown)
 
+              $("#banner_here").html("<pre>"+textStatus+"</pre>");
             }
           })
           console.log('End of Ajax Click event');
