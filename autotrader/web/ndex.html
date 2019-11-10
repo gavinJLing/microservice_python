@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Fraud</title>
+
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/dc.css"/>
+    
+
+    <style>
+        div.dc-chart {
+            float: left;
+        }
+        #monthly-volume-chart g.y {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+
+    <h2>Fraud</h2>
+
+
+    <div class="row">
+        <div id="yearly-bubble-chart" class="dc-chart">
+            <strong>XXXXXXX XXX XXXXXX</strong>
+            <a class="reset" href="javascript:yearlyBubbleChart.filterAll();dc.redrawAll();"
+            style="display: none;">reset</a>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="gain-loss-chart">
+            <strong>Days by XXXX/YYYY</strong>
+            <a class="reset" href="javascript:gainOrLossChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="quarter-chart">
+            <strong>Quarters</strong>
+            <a class="reset" href="javascript:quarterChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="day-of-week-chart">
+            <strong>Day of Week</strong>
+            <a class="reset" href="javascript:dayOfWeekChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="fluctuation-chart">
+            <strong>xxxx(%)</strong>
+            <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+            <a class="reset" href="javascript:fluctuationChart.filterAll();dc.redrawAll();" style="display: none;">reset</a>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="monthly-move-chart">
+            <strong>XXXXXXXXXXX</strong> x xxx
+            <span class="reset" style="display: none;">range: <span class="filter"></span></span>
+            <a class="reset" href="javascript:moveChart.filterAll();volumeChart.filterAll();dc.redrawAll();"
+            style="display: none;">reset</a>
+
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="monthly-volume-chart">
+        </div>
+        <p class="muted pull-right" style="margin-right: 15px;">select a time range to zoom in</p>
+    </div>
+
+    <div class="row">
+        <div>
+            <div class="dc-data-count">
+                <span class="filter-count"></span> selected out of <span class="total-count"></span> records | <a
+                    href="javascript:dc.filterAll(); dc.renderAll();">Reset All</a>
+            </div>
+        </div>
+        <table class="table table-hover dc-data-table">
+        </table>
+    </div>
+
+
+
+</div>
+
+
+
+
+<script type="text/javascript" src="js/promise-polyfill.js"></script>
+<script type="text/javascript" src="js/fetch.umd.js"></script>
+<script type="text/javascript" src="js/d3.js"></script>
+<script type="text/javascript" src="js/crossfilter.js"></script>
+<script type="text/javascript" src="js/dc.js"></script>
+
+<script type="text/javascript" src="stock.js"></script>
+
+
+</body>
+</html>

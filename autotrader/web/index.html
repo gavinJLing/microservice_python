@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Dimensional Charting</title>
+<link rel="stylesheet" type="text/css" href="https://cvlassets.s3.amazonaws.com/styles.css" />
+<link rel="stylesheet" type="text/css" href="https://cvlassets.s3.amazonaws.com/dc.css" />
+
+<script type="text/javascript" src="https://cvlassets.s3.amazonaws.com/d3.js"></script>
+<script type="text/javascript" src="https://cvlassets.s3.amazonaws.com/crossfilter.js"></script>
+<script type="text/javascript" src="https://cvlassets.s3.amazonaws.com/dc.js"></script>
+</head>
+
+<body>
+<h1>Sales dashboard over 15-hour period.</h1>
+<div id="area-chart"></div>
+
+<div id="donut-chart"></div>
+
+<div id="bar-chart"></div>
+
+<script type="text/javascript">
+var timeFormat = d3.time.format.iso;
+
+    d3.json('http://nickqizhu.github.io/d3-cookbook/data/payment.json', function(json){
+var data = crossfilter(json);
+
+var hours = data.dimension(function(d){
+return d3.time.hour(timeFormat.parse(d.date));
+});
+var totalByHour = hours.group().reduceSum(function(d){
+return d.total;
+});
+
+var types = data.dimension(function(d){return d.type;});
+var transactionByType = types.group().reduceCount();
+var quantities = data.dimension(function(d){return d.quantity;});
+var salesByQuantity = quantities.group();
+
+dc.lineChart("#area-chart")
+.width(380)
+.height(250)
+.dimension(hours)
+.group(totalByHour)
+.x(d3.time.scale().domain([timeFormat.parse("2011-11-14T01:17:54Z"), timeFormat.parse("2011-11-14T18:09:52Z")]))
+.elasticY(true)
+.xUnits(d3.time.hours)
+.renderArea(true)
+.xAxis().ticks(5);
+
+dc.pieChart("#donut-chart")
+.width(250)
+.height(250)
+.radius(125)
+.innerRadius(50)
+.dimension(types)
+.group(transactionByType);
+dc.barChart("#bar-chart")
+.width(380)
+.height(250)
+.dimension(quantities)
+.group(salesByQuantity)
+.x(d3.scale.linear().domain([0, 7]))
+.y(d3.scale.linear().domain([0, 12]))
+.centerBar(true);
+
+dc.renderAll();
+});
+</script>
+
+</body>
+
+</html>
