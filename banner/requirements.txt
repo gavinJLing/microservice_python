@@ -1,6 +1,6 @@
 Flask==1.1.1
 Flask-RESTful==0.3.7
-Flask-Cors==3.0.8
+Flask-Cors==3.0.9
 pyfiglet==0.8.post1
 jsonschema==2.5.1
 requests==2.22.0
